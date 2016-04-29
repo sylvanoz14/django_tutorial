@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"tim",
+				"timezone	module"
+			],
+			[
+				"Cr",
+				"CharField	class"
+			],
+			[
 				"f",
 				"forward	function"
 			]
@@ -77,10 +85,26 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/sylvainmomo/Documents/django/first_project/mysite"
+		"/Users/sylvainmomo/Documents/django/first_project/mysite",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/mysite",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls/migrations"
 	],
 	"file_history":
 	[
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/requirement.txt",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls/models.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls/admin.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls/views.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/mysite/urls.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/mysite/settings.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls/urls.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/polls/migrations/0001_initial.py",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/.gitignore",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/untitled",
+		"/Users/sylvainmomo/Documents/django/first_project/requirement.txt",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/django.sublime-project",
+		"/Users/sylvainmomo/Documents/django/first_project/mysite/django.sublime-workspace",
 		"/Users/sylvainmomo/UDACITY/algorithm/class1_quiz1.py",
 		"/Users/sylvainmomo/python_class_2/database_setup.py",
 		"/Users/sylvainmomo/python_class/square.py",
@@ -111,7 +135,7 @@
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 33.0
 	},
 	"find_in_files":
 	{
@@ -229,7 +253,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 258.0,
+	"side_bar_width": 216.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
