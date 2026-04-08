@@ -1,0 +1,199 @@
+/* Pet Hospital Investment Dashboard */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f4f6f9;
+  color: #2c3e50;
+}
+
+header {
+  background: linear-gradient(135deg, #1a3a5c 0%, #2980b9 100%);
+  color: white;
+  padding: 28px 32px;
+  border-bottom: 4px solid #1a252f;
+}
+header h1 { font-size: 1.7rem; margin-bottom: 8px; }
+header .subtitle { font-size: 0.95rem; opacity: 0.9; }
+
+.container { max-width: 1300px; margin: 0 auto; padding: 24px 20px; }
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px;
+  margin-bottom: 28px;
+}
+.card h2 {
+  font-size: 1.2rem;
+  color: #1a3a5c;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8edf2;
+}
+
+/* Map */
+#map {
+  height: 520px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #dde3ea;
+}
+.legend {
+  font-size: 0.83rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.dot {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+.dot.green       { background: #27ae60; }
+.dot.yellow      { background: #f39c12; }
+.dot.red-dot     { background: #e74c3c; }
+.dot.hospital-dot { background: #c0392b; border: 2px solid white; box-shadow: 0 0 0 1px #c0392b; }
+
+.note { font-size: 0.85rem; color: #666; margin-bottom: 16px; }
+
+/* Top-5 cards */
+.top-card {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid #e0e7ef;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.top-card.rank-1 { border-left: 6px solid #f1c40f; }
+.top-card.rank-2 { border-left: 6px solid #95a5a6; }
+.top-card.rank-3 { border-left: 6px solid #cd7f32; }
+.top-card.rank-4, .top-card.rank-5 { border-left: 6px solid #2980b9; }
+
+.rank-badge {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: #1a3a5c;
+  min-width: 60px;
+  text-align: center;
+  padding: 24px 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-card-body { padding: 16px 20px; flex: 1; }
+.top-card-body h3 { font-size: 1.1rem; margin-bottom: 10px; color: #1a3a5c; }
+
+.corridor-tag {
+  background: #27ae60;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.score-bar-wrap {
+  background: #ecf0f1;
+  border-radius: 20px;
+  height: 18px;
+  position: relative;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.score-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2980b9, #27ae60);
+  border-radius: 20px;
+  transition: width 0.6s ease;
+}
+.score-label {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.metric {
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  border: 1px solid #e8edf2;
+}
+.metric-label { font-size: 0.72rem; color: #7f8c8d; display: block; }
+.metric-value { font-size: 0.9rem; font-weight: 600; color: #2c3e50; display: block; }
+.metric-value.small { font-size: 0.78rem; }
+
+.score-breakdown {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+  margin-top: 4px;
+}
+.score-breakdown th {
+  background: #f0f4f8;
+  padding: 5px 10px;
+  text-align: left;
+  color: #5d6d7e;
+  border: 1px solid #dde3ea;
+}
+.score-breakdown td {
+  padding: 5px 10px;
+  border: 1px solid #eaecef;
+}
+.score-breakdown .total-row { background: #eaf4fb; }
+
+/* Full table */
+.table-wrap { overflow-x: auto; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.data-table th {
+  background: #1a3a5c;
+  color: white;
+  padding: 8px 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+.data-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eaecef;
+}
+.data-table .top-row { background: #eaf4fb; font-weight: 600; }
+.data-table tr:hover { background: #f0f4f8; }
+
+/* Report pre */
+.report-pre {
+  background: #1e2a38;
+  color: #a8d8ea;
+  padding: 20px 24px;
+  border-radius: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}

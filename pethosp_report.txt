@@ -1,0 +1,107 @@
+=================================================================
+  VICTORIA PET HOSPITAL — INVESTMENT LOCATION REPORT
+  Generated: 08 April 2026
+=================================================================
+
+TOP 5 RECOMMENDED LOCATIONS FOR PET HOSPITAL DEVELOPMENT
+(2,000–5,000 sqm facility, for lease to specialist operator)
+-----------------------------------------------------------------
+
+#1  City of Melton  —  Composite Score: 73.9/100
+    Council/LGA:        City of Melton
+    Status:             GROWTH CORRIDOR
+    Population:         185,000  (growth: 5.8%/yr)
+    Households:         62,000
+    Est. Pet Population:68,448 pets in LGA catchment
+    Nearest Pet Hosp:   University of Melbourne Veterinary Hospital (Werribee) (25.3 km)
+    Major Road Access:  Western Fwy,Metropolitan Ring Rd
+    Income Index:       0.88  (state avg = 1.00)
+    --- Score breakdown ---
+      Pet Population:    46.7/100
+      Growth:           100.0/100
+      Supply Gap:       100.0/100
+      Road Access:       80.0/100
+      Affordability:     19.3/100
+    WHY THIS SITE:
+      The nearest existing pet hospital is 25.3 km away, leaving a large underserved catchment.  Designated growth corridor with 5.8% annual population growth — pet ownership demand will increase rapidly.
+
+#2  City of Whittlesea  —  Composite Score: 73.3/100
+    Council/LGA:        City of Whittlesea
+    Status:             GROWTH CORRIDOR
+    Population:         235,000  (growth: 4.2%/yr)
+    Households:         79,000
+    Est. Pet Population:87,216 pets in LGA catchment
+    Nearest Pet Hosp:   Pet Emergency - Bundoora (17.4 km)
+    Major Road Access:  Hume Fwy,Metropolitan Ring Rd
+    Income Index:       0.90  (state avg = 1.00)
+    --- Score breakdown ---
+      Pet Population:    59.8/100
+      Growth:            80.6/100
+      Supply Gap:       100.0/100
+      Road Access:       80.0/100
+      Affordability:     21.7/100
+    WHY THIS SITE:
+      The nearest existing pet hospital is 17.4 km away, leaving a large underserved catchment.  Designated growth corridor with 4.2% annual population growth — pet ownership demand will increase rapidly.  Estimated 87,216 pets in catchment provide a strong existing patient base.
+
+#3  City of Wyndham  —  Composite Score: 67.6/100
+    Council/LGA:        City of Wyndham
+    Status:             GROWTH CORRIDOR
+    Population:         300,000  (growth: 5.5%/yr)
+    Households:         99,000
+    Est. Pet Population:109,296 pets in LGA catchment
+    Nearest Pet Hosp:   University of Melbourne Veterinary Hospital (Werribee) (7.4 km)
+    Major Road Access:  Princes Fwy,Western Ring Rd,Geelong Rd
+    Income Index:       0.88  (state avg = 1.00)
+    --- Score breakdown ---
+      Pet Population:    75.3/100
+      Growth:            96.4/100
+      Supply Gap:        40.0/100
+      Road Access:       90.0/100
+      Affordability:     19.3/100
+    WHY THIS SITE:
+      Designated growth corridor with 5.5% annual population growth — pet ownership demand will increase rapidly.  Estimated 109,296 pets in catchment provide a strong existing patient base.
+
+#4  City of Hume  —  Composite Score: 66.3/100
+    Council/LGA:        City of Hume
+    Status:             GROWTH CORRIDOR
+    Population:         230,000  (growth: 3.8%/yr)
+    Households:         77,000
+    Est. Pet Population:85,008 pets in LGA catchment
+    Nearest Pet Hosp:   Animal Referral Hospital (ARH) Essendon (14.6 km)
+    Major Road Access:  Tullamarine Fwy,Hume Fwy,Western Ring Rd
+    Income Index:       0.90  (state avg = 1.00)
+    --- Score breakdown ---
+      Pet Population:    58.3/100
+      Growth:            75.8/100
+      Supply Gap:        75.0/100
+      Road Access:       90.0/100
+      Affordability:     21.7/100
+    WHY THIS SITE:
+      The nearest existing pet hospital is 14.6 km away, leaving a large underserved catchment.  Designated growth corridor with 3.8% annual population growth — pet ownership demand will increase rapidly.  Estimated 85,008 pets in catchment provide a strong existing patient base.
+
+#5  Shire of Cardinia  —  Composite Score: 65.2/100
+    Council/LGA:        Shire of Cardinia
+    Status:             GROWTH CORRIDOR
+    Population:         112,000  (growth: 4.8%/yr)
+    Households:         38,000
+    Est. Pet Population:41,952 pets in LGA catchment
+    Nearest Pet Hosp:   Casey Animal Emergency Centre (16.8 km)
+    Major Road Access:  South Gippsland Hwy,Princes Fwy
+    Income Index:       0.95  (state avg = 1.00)
+    --- Score breakdown ---
+      Pet Population:    28.1/100
+      Growth:            87.9/100
+      Supply Gap:       100.0/100
+      Road Access:       70.0/100
+      Affordability:     27.7/100
+    WHY THIS SITE:
+      The nearest existing pet hospital is 16.8 km away, leaving a large underserved catchment.  Designated growth corridor with 4.8% annual population growth — pet ownership demand will increase rapidly.
+
+-----------------------------------------------------------------
+METHODOLOGY NOTES
+  Pet population: households x 69% ownership x 1.6 pets/household
+  Supply gap: distance to nearest known pet hospital (not vet clinic)
+  Growth data: Plan Melbourne 2017-2050, VIF 2022 projections
+  Weights: Pet Pop 30%, Growth 25%, Supply Gap 25%, Road 10%, Income 10%
+  Data source: ABS 2021 Census, Animal Medicines Australia 2022
+=================================================================

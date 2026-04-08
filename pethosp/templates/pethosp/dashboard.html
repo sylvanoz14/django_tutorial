@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Hospital Investment — Victoria Location Analysis</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'pethosp/style.css' %}">
+  <!-- Leaflet.js CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Victoria Pet Hospital — Investment Location Analysis</h1>
+  <p class="subtitle">
+    Identifying optimal 2,000–5,000 sqm pet hospital development sites for lease to specialist operators.
+    Analysis covers <strong>{{ total_lgas }}</strong> Victorian LGAs against
+    <strong>{{ total_hospitals }}</strong> known pet hospitals.
+  </p>
+</header>
+
+<div class="container">
+
+  <!-- ====== MAP ====== -->
+  <section class="card">
+    <h2>Location Map</h2>
+    <div class="legend">
+      <span class="dot green"></span> High opportunity (score &ge;65)&nbsp;&nbsp;
+      <span class="dot yellow"></span> Medium (45–64)&nbsp;&nbsp;
+      <span class="dot red-dot"></span> Low (&lt;45)&nbsp;&nbsp;
+      <span class="dot hospital-dot"></span> Existing pet hospital
+    </div>
+    <div id="map"></div>
+  </section>
+
+  <!-- ====== TOP 5 REPORT ====== -->
+  <section class="card">
+    <h2>Top 5 Recommended Locations</h2>
+    <p class="note">
+      Ranked by composite score: Pet Population (30%) + Growth/Corridor (25%) +
+      Supply Gap (25%) + Road Access (10%) + Household Income (10%).
+    </p>
+    {% for s in top5 %}
+    <div class="top-card rank-{{ forloop.counter }}">
+      <div class="rank-badge">#{{ s.rank }}</div>
+      <div class="top-card-body">
+        <h3>{{ s.lga.name }}
+          {% if s.lga.is_growth_corridor %}
+          <span class="corridor-tag">GROWTH CORRIDOR</span>
+          {% endif %}
+        </h3>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width: {{ s.composite_score }}%"></div>
+          <span class="score-label">{{ s.composite_score }}/100</span>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-label">Population</span>
+            <span class="metric-value">{{ s.lga.population|floatformat:"0" }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Est. Pets in LGA</span>
+            <span class="metric-value">{{ s.estimated_pet_population|floatformat:"0" }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Annual Growth</span>
+            <span class="metric-value">{{ s.lga.growth_rate_pct }}%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Nearest Pet Hosp.</span>
+            <span class="metric-value">{{ s.min_distance_to_hospital_km }} km</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Nearest Facility</span>
+            <span class="metric-value small">{% if s.nearest_hospital %}{{ s.nearest_hospital.name }}{% else %}N/A{% endif %}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Income Index</span>
+            <span class="metric-value">{{ s.lga.median_income_index }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Major Roads</span>
+            <span class="metric-value small">{{ s.lga.major_roads }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Freeway Access</span>
+            <span class="metric-value">{% if s.lga.has_freeway_access %}Yes{% else %}No{% endif %}</span>
+          </div>
+        </div>
+        <table class="score-breakdown">
+          <tr>
+            <th>Factor</th><th>Weight</th><th>Score</th>
+          </tr>
+          <tr>
+            <td>Pet Population</td><td>30%</td><td>{{ s.pet_population_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Growth / Corridor</td><td>25%</td><td>{{ s.growth_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Supply Gap</td><td>25%</td><td>{{ s.supply_gap_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Road Access</td><td>10%</td><td>{{ s.road_access_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Household Income</td><td>10%</td><td>{{ s.affordability_score }}/100</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>COMPOSITE</strong></td><td></td><td><strong>{{ s.composite_score }}/100</strong></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    {% empty %}
+    <p>No scores available. Run: <code>python manage.py run_pethosp_analysis</code></p>
+    {% endfor %}
+  </section>
+
+  <!-- ====== FULL RANKED TABLE ====== -->
+  <section class="card">
+    <h2>All LGAs Ranked</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>LGA</th>
+            <th>Score</th>
+            <th>Est. Pets</th>
+            <th>Nearest Hosp (km)</th>
+            <th>Growth %</th>
+            <th>Corridor</th>
+            <th>Pet Pop</th>
+            <th>Growth</th>
+            <th>Gap</th>
+            <th>Road</th>
+            <th>Income</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in scores %}
+          <tr class="{% if s.rank <= 5 %}top-row{% endif %}">
+            <td>{{ s.rank }}</td>
+            <td>{{ s.lga.name }}</td>
+            <td><strong>{{ s.composite_score }}</strong></td>
+            <td>{{ s.estimated_pet_population|floatformat:"0" }}</td>
+            <td>{{ s.min_distance_to_hospital_km }}</td>
+            <td>{{ s.lga.growth_rate_pct }}%</td>
+            <td>{% if s.lga.is_growth_corridor %}&#10003;{% else %}—{% endif %}</td>
+            <td>{{ s.pet_population_score }}</td>
+            <td>{{ s.growth_score }}</td>
+            <td>{{ s.supply_gap_score }}</td>
+            <td>{{ s.road_access_score }}</td>
+            <td>{{ s.affordability_score }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ====== TEXT REPORT ====== -->
+  <section class="card">
+    <h2>Investment Report (Plain Text)</h2>
+    <pre class="report-pre">{{ report_text }}</pre>
+  </section>
+
+</div><!-- /container -->
+
+<script>
+// ---- Leaflet map initialisation ----
+var map = L.map('map').setView([-37.4, 144.8], 7);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 18
+}).addTo(map);
+
+// LGA score circles
+var lgaData = {{ lga_features_json|safe }};
+lgaData.forEach(function(d) {
+  var radius = 8000 + (d.score / 100) * 12000;
+  var circle = L.circle([d.lat, d.lng], {
+    color: d.color,
+    fillColor: d.color,
+    fillOpacity: 0.55,
+    radius: radius,
+    weight: 1.5
+  }).addTo(map);
+
+  var corridorText = d.is_corridor ? '<b>&#10003; GROWTH CORRIDOR</b>' : 'Established LGA';
+  circle.bindPopup(
+    '<b>#' + d.rank + ' ' + d.name + '</b><br>' +
+    'Composite Score: <b>' + d.score.toFixed(1) + '/100</b><br>' +
+    corridorText + '<br>' +
+    'Population: ' + d.population.toLocaleString() + ' (' + d.growth_rate + '%/yr)<br>' +
+    'Est. Pets: ' + d.estimated_pets.toLocaleString() + '<br>' +
+    'Nearest Hospital: ' + d.nearest_hospital + ' (' + d.min_dist.toFixed(1) + ' km)<br>' +
+    'Roads: ' + d.roads + '<br>' +
+    '<hr style="margin:4px 0">' +
+    'Pet Pop: ' + d.pet_pop_score.toFixed(1) +
+    ' | Growth: ' + d.growth_score.toFixed(1) +
+    ' | Gap: ' + d.supply_gap_score.toFixed(1) +
+    ' | Road: ' + d.road_score.toFixed(1) +
+    ' | Income: ' + d.afford_score.toFixed(1)
+  );
+});
+
+// Existing pet hospital markers
+var hospData = {{ hospital_features_json|safe }};
+var hospIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#c0392b;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.5)"></div>',
+  iconSize: [14, 14],
+  iconAnchor: [7, 7]
+});
+hospData.forEach(function(h) {
+  L.marker([h.lat, h.lng], {icon: hospIcon}).addTo(map)
+   .bindPopup(
+     '<b>' + h.name + '</b><br>' +
+     h.suburb + '<br>' +
+     '<em>' + h.type + '</em><br>' +
+     h.services.split(',').join(', ')
+   );
+});
+</script>
+
+</body>
+</html>
