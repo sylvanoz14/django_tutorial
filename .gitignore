@@ -6,3 +6,8 @@ lib
 include
 .DS_Store
 .pyc
+__pycache__/
+*.pyc
+*.pyo
+*.db
+*.sqlite3
