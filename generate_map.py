@@ -119,13 +119,12 @@ states_feat = cfeature.ShapelyFeature(
 )
 ax.add_feature(states_feat, zorder=4)
 
-# Subtle land grid
-gl = ax.gridlines(draw_labels=True, linewidth=0.4, color='#bbbbbb',
-                  alpha=0.6, linestyle='--', zorder=5)
-gl.top_labels = False
-gl.right_labels = False
-gl.xlabel_style = {'size': 7, 'color': '#555555'}
-gl.ylabel_style = {'size': 7, 'color': '#555555'}
+# Subtle lat/lon tick labels (gridlines() omitted: current cartopy/shapely
+# combo throws on this extent's map boundary; not essential to the figure)
+ax.set_xticks(np.arange(144.0, 146.5, 0.5), crs=PROJ)
+ax.set_yticks(np.arange(-38.5, -37.0, 0.5), crs=PROJ)
+ax.tick_params(labelsize=7, colors='#555555', length=0)
+ax.grid(True, linewidth=0.4, color='#bbbbbb', alpha=0.6, linestyle='--', zorder=5)
 
 # ─── candidate LGA circles ─────────────────────────────────────────────────
 for i, row in enumerate(top_lgas):
@@ -157,16 +156,16 @@ for i, row in enumerate(top_lgas):
         label += f'\n{corr_tag}'
 
     # Per-candidate label offsets (dx, dy) tuned for Melbourne geography
-    # Melton=W, Whittlesea=N, Wyndham=SW, Hume=NW, Cardinia=SE
+    # Melton=W, Wyndham=SW, Hume=N, Cardinia=SE, Casey=S (near Cardinia)
     label_offsets = [
         (-0.35, 0.05),   # #1 Melton — label to the left
-        ( 0.30, 0.15),   # #2 Whittlesea — label upper-right
-        (-0.30,-0.30),   # #3 Wyndham — label lower-left
-        (-0.32, 0.10),   # #4 Hume — label left (avoid Whittlesea)
-        ( 0.35, 0.05),   # #5 Cardinia — label to the right
+        (-0.32,-0.28),   # #2 Wyndham — label lower-left
+        ( 0.05, 0.32),   # #3 Hume — label above
+        ( 0.38, 0.10),   # #4 Cardinia — label to the right
+        (-0.18,-0.32),   # #5 Casey — label below-left (avoid Cardinia)
     ]
     dx, dy = label_offsets[i]
-    ha_map = ['right', 'left', 'right', 'right', 'left']
+    ha_map = ['right', 'right', 'center', 'left', 'right']
 
     txt = ax.text(
         lng + dx, lat + dy,
@@ -262,7 +261,8 @@ ax.set_title(
 fig.text(
     0.01, 0.005,
     'Scoring weights: pet population 30% · growth/corridor 25% · supply gap 25% · road access 10% · income 10%\n'
-    'Data: ABS 2021 Census · Plan Melbourne 2017-2050 · VIF 2022 · 15 known pet hospitals',
+    f'Data: ABS 2021 Census · Plan Melbourne 2017-2050 · VIF 2022 · {len(hospitals)} known pet hospitals '
+    '(updated July 2026: adds VicVet Whittlesea, opened Mar 2026)',
     fontsize=6.5, color='#666666', va='bottom',
 )
 

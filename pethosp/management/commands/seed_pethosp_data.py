@@ -283,6 +283,14 @@ PET_HOSPITALS_DATA = [
      -37.9022, 144.6681,
      'specialist',
      'Surgery,Internal Medicine,Oncology,Cardiology,Neurology,Wildlife'),
+
+    # Added July 2026: opened March 2026, confirmed via web search.
+    # Coordinates approximate (Plenty Rd, Whittlesea township) - not precisely geocoded.
+    ('VicVet Emergency and Referral',
+     '2394 Plenty Rd', 'Whittlesea',
+     -37.5136, 145.1195,
+     'specialist',
+     'Emergency,Critical Care,Surgery,Oncology,Internal Medicine,Rehabilitation'),
 ]
 
 

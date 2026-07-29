@@ -1,6 +1,6 @@
 =================================================================
   VICTORIA PET HOSPITAL — INVESTMENT LOCATION REPORT
-  Generated: 08 April 2026
+  Generated: 29 July 2026
 =================================================================
 
 TOP 5 RECOMMENDED LOCATIONS FOR PET HOSPITAL DEVELOPMENT
@@ -25,25 +25,7 @@ TOP 5 RECOMMENDED LOCATIONS FOR PET HOSPITAL DEVELOPMENT
     WHY THIS SITE:
       The nearest existing pet hospital is 25.3 km away, leaving a large underserved catchment.  Designated growth corridor with 5.8% annual population growth — pet ownership demand will increase rapidly.
 
-#2  City of Whittlesea  —  Composite Score: 73.3/100
-    Council/LGA:        City of Whittlesea
-    Status:             GROWTH CORRIDOR
-    Population:         235,000  (growth: 4.2%/yr)
-    Households:         79,000
-    Est. Pet Population:87,216 pets in LGA catchment
-    Nearest Pet Hosp:   Pet Emergency - Bundoora (17.4 km)
-    Major Road Access:  Hume Fwy,Metropolitan Ring Rd
-    Income Index:       0.90  (state avg = 1.00)
-    --- Score breakdown ---
-      Pet Population:    59.8/100
-      Growth:            80.6/100
-      Supply Gap:       100.0/100
-      Road Access:       80.0/100
-      Affordability:     21.7/100
-    WHY THIS SITE:
-      The nearest existing pet hospital is 17.4 km away, leaving a large underserved catchment.  Designated growth corridor with 4.2% annual population growth — pet ownership demand will increase rapidly.  Estimated 87,216 pets in catchment provide a strong existing patient base.
-
-#3  City of Wyndham  —  Composite Score: 67.6/100
+#2  City of Wyndham  —  Composite Score: 67.6/100
     Council/LGA:        City of Wyndham
     Status:             GROWTH CORRIDOR
     Population:         300,000  (growth: 5.5%/yr)
@@ -61,7 +43,7 @@ TOP 5 RECOMMENDED LOCATIONS FOR PET HOSPITAL DEVELOPMENT
     WHY THIS SITE:
       Designated growth corridor with 5.5% annual population growth — pet ownership demand will increase rapidly.  Estimated 109,296 pets in catchment provide a strong existing patient base.
 
-#4  City of Hume  —  Composite Score: 66.3/100
+#3  City of Hume  —  Composite Score: 66.3/100
     Council/LGA:        City of Hume
     Status:             GROWTH CORRIDOR
     Population:         230,000  (growth: 3.8%/yr)
@@ -79,7 +61,7 @@ TOP 5 RECOMMENDED LOCATIONS FOR PET HOSPITAL DEVELOPMENT
     WHY THIS SITE:
       The nearest existing pet hospital is 14.6 km away, leaving a large underserved catchment.  Designated growth corridor with 3.8% annual population growth — pet ownership demand will increase rapidly.  Estimated 85,008 pets in catchment provide a strong existing patient base.
 
-#5  Shire of Cardinia  —  Composite Score: 65.2/100
+#4  Shire of Cardinia  —  Composite Score: 65.2/100
     Council/LGA:        Shire of Cardinia
     Status:             GROWTH CORRIDOR
     Population:         112,000  (growth: 4.8%/yr)
@@ -96,6 +78,24 @@ TOP 5 RECOMMENDED LOCATIONS FOR PET HOSPITAL DEVELOPMENT
       Affordability:     27.7/100
     WHY THIS SITE:
       The nearest existing pet hospital is 16.8 km away, leaving a large underserved catchment.  Designated growth corridor with 4.8% annual population growth — pet ownership demand will increase rapidly.
+
+#5  City of Casey  —  Composite Score: 61.3/100
+    Council/LGA:        City of Casey
+    Status:             GROWTH CORRIDOR
+    Population:         390,000  (growth: 3.5%/yr)
+    Households:         131,000
+    Est. Pet Population:144,624 pets in LGA catchment
+    Nearest Pet Hosp:   Casey Animal Emergency Centre (3.0 km)
+    Major Road Access:  Monash Fwy,Eastlink,South Gippsland Hwy
+    Income Index:       0.95  (state avg = 1.00)
+    --- Score breakdown ---
+      Pet Population:   100.0/100
+      Growth:            72.1/100
+      Supply Gap:        10.0/100
+      Road Access:       80.0/100
+      Affordability:     27.7/100
+    WHY THIS SITE:
+      Designated growth corridor with 3.5% annual population growth — pet ownership demand will increase rapidly.  Estimated 144,624 pets in catchment provide a strong existing patient base.
 
 -----------------------------------------------------------------
 METHODOLOGY NOTES
