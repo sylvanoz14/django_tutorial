@@ -1,0 +1,130 @@
+====================================================================
+  WYNDHAM CORRIDOR — PLAY CENTRE FEASIBILITY REPORT
+  Generated: 30 July 2026
+====================================================================
+
+TOP 5 RECOMMENDED SUBURBS FOR BIG-BOX PLAY CENTRE DEVELOPMENT
+--------------------------------------------------------------------
+
+#1  Truganina  —  Composite Score: 81.0/100
+    LGA:                City of Wyndham
+    Status:             GROWTH CORRIDOR
+    Population:         42,000  (growth: 7.2%/yr)
+    Est. Children <12:  9,230
+    Nearest Competitor: Bumble Beez Indoor Playcentre & Cafe (12.4 km)
+    Major Road Access:  Western Fwy,Palmers Rd,Dohertys Rd
+    Best Candidate Site: Industrial/Warehouse Space – 355 Palmers Rd — 355 Palmers Rd (1,571 sqm) [VERIFIED]
+       Source: https://www.cushmanwakefield.com/en/australia/properties/for-lease/industrialwarehouse/vic/truganina/355-palmers-rd/a8y8b000000gm69eag-l
+    --- Score breakdown ---
+      Family Population:  72.0/100
+      Growth:             63.4/100
+      Supply Gap:        100.0/100
+      Road Access:        85.0/100
+      Site Availability: 100.0/100
+
+#2  Tarneit  —  Composite Score: 71.9/100
+    LGA:                City of Wyndham
+    Status:             GROWTH CORRIDOR
+    Population:         58,000  (growth: 5.8%/yr)
+    Est. Children <12:  12,350
+    Nearest Competitor: Bumble Beez Indoor Playcentre & Cafe (7.5 km)
+    Major Road Access:  Princes Fwy,Derrimut Rd,Tarneit Station
+    Best Candidate Site: none identified yet in this suburb
+    --- Score breakdown ---
+      Family Population: 100.0/100
+      Growth:             52.8/100
+      Supply Gap:         75.0/100
+      Road Access:        80.0/100
+      Site Availability:  20.0/100
+
+#3  Mambourin  —  Composite Score: 61.4/100
+    LGA:                City of Wyndham
+    Status:             GROWTH CORRIDOR
+    Population:         8,000  (growth: 12.0%/yr)
+    Est. Children <12:  1,820
+    Nearest Competitor: BouncyRoos (7.0 km)
+    Major Road Access:  Black Forest Rd,Princes Fwy (via Ballan Rd)
+    Best Candidate Site: Mambourin Town Centre (future precinct) — Mambourin Town Centre precinct (25,000 sqm) [VERIFIED]
+    --- Score breakdown ---
+      Family Population:   5.7/100
+      Growth:            100.0/100
+      Supply Gap:         75.0/100
+      Road Access:        60.0/100
+      Site Availability: 100.0/100
+
+#4  Point Cook  —  Composite Score: 53.2/100
+    LGA:                City of Wyndham
+    Status:             Established Suburb
+    Population:         61,000  (growth: 3.0%/yr)
+    Est. Children <12:  9,225
+    Nearest Competitor: Bumble Beez Indoor Playcentre & Cafe (8.1 km)
+    Major Road Access:  Princes Fwy,Point Cook Rd
+    Best Candidate Site: none identified yet in this suburb
+    --- Score breakdown ---
+      Family Population:  72.0/100
+      Growth:             11.4/100
+      Supply Gap:         75.0/100
+      Road Access:        80.0/100
+      Site Availability:  20.0/100
+
+#5  Wyndham Vale  —  Composite Score: 46.4/100
+    LGA:                City of Wyndham
+    Status:             GROWTH CORRIDOR
+    Population:         32,000  (growth: 4.5%/yr)
+    Est. Children <12:  7,020
+    Nearest Competitor: BouncyRoos (4.3 km)
+    Major Road Access:  Princes Fwy,Ballan Rd,Wyndham Vale Station
+    Best Candidate Site: none identified yet in this suburb
+    --- Score breakdown ---
+      Family Population:  52.2/100
+      Growth:             42.9/100
+      Supply Gap:         40.0/100
+      Road Access:        80.0/100
+      Site Availability:  20.0/100
+
+--------------------------------------------------------------------
+ALL CANDIDATE SITES FOUND (across all suburbs, for reference)
+--------------------------------------------------------------------
+  [Warehouse For Lease] Foundation at Truganina (Dexus industrial estate) — Truganina industrial precinct (size TBC, Contact agent (Dexus)) [VERIFIED]
+       Zoning: Premium grade industrial estate; freestanding warehouse & office facilities
+       Note: Large-format estate (units generally 11,000-15,000 sqm) — likely oversized unless subdivided.
+       Source: https://www.dexus.com/leasing/industrial/properties/foundation-at-truganina.html
+  [Warehouse For Lease] Industrial/Warehouse Space – 355 Palmers Rd — 355 Palmers Rd (1,571 sqm, Contact agent (Cushman & Wakefield / Central Commercial Group)) [VERIFIED]
+       Zoning: Brand-new showroom + office/warehouse, main road exposure, 130m frontage near corner Palmers/Dohertys Rd
+       Note: Below target size range alone, but high street exposure ideal for a family entertainment venue.
+       Source: https://www.cushmanwakefield.com/en/australia/properties/for-lease/industrialwarehouse/vic/truganina/355-palmers-rd/a8y8b000000gm69eag-l
+  [Warehouse For Lease] Industrial/Warehouse Space – 42 Sunline Drive — 42 Sunline Drive (5,000 sqm, Contact agent (Cushman & Wakefield)) [VERIFIED]
+       Zoning: Industrial zoned; sublease, ready for immediate occupation
+       Note: Immediate occupation, 5,000 sqm matches top of target size range exactly.
+       Source: https://www.cushmanwakefield.com/en/australia/properties/for-lease/industrialwarehouse/vic/truganina/42-sunline-drive/a8ypy0000006f612ae-l
+  [Commercial Development Site] Warehouse/Showroom/Retail Space – 14 Tallis Circuit — 14 Tallis Circuit (size TBC, Contact agent (Raine & Horne Williams Landing)) [VERIFIED]
+       Zoning: Marketed explicitly for showroom/retail use, not pure logistics — lower zoning risk
+       Note: Marketed for showroom/retail, which reduces re-zoning risk versus pure logistics warehouse stock.
+       Source: https://www.raineandhorne.com.au/pointcookwilliamslanding/properties/14-tallis-circuit-truganina-3029-victoria
+  [Industrial Land For Sale] Land/Development Site – Lot 3-4, 440 Black Forest Rd / 323 Greens Rd — Lot 3-4, 440 Black Forest Rd / 323 Greens Rd (size TBC, Contact agent (Cushman & Wakefield)) [UNVERIFIED]
+       Zoning: Earmarked industrial per Western Growth Corridor Plan / Mambourin East Precinct Plan
+       Note: Falls directly inside the marked target zone. Full listing detail (size/price) blocked automated retrieval (403) — confirm directly with agent before relying on this.
+       Source: https://www.cushmanwakefield.com/en/australia/properties/for-sale/landdevelopment/victoria/mambourin/lot-3-4-440-black-forest-rd-323-greens-road/a8y5c000000lcupeao-s
+  [Future Precinct / Town Centre] Mambourin Town Centre (future precinct) — Mambourin Town Centre precinct (25,000 sqm, Not yet available — precinct in planning) [VERIFIED]
+       Zoning: Planned mixed retail precinct; may include cinema per public precinct information
+       Note: 25,000 sqm retail hub planned (cafes, restaurants, supermarkets, specialty stores, possible cinema). A co-located or adjacent play centre would benefit from shared footfall once this opens — worth monitoring as a longer-term anchor opportunity, not an immediate site.
+
+--------------------------------------------------------------------
+ZONING & APPROVALS NOTE
+  Wyndham City Council requires a Town Planning permit for any
+  "Place of Assembly" (land where people congregate for entertainment,
+  meetings, or cultural activities) — a play centre falls under this
+  definition regardless of underlying zone. Budget time/cost for this
+  approval step; industrial-zoned sites may need an additional permit
+  for change of use from warehouse/logistics to indoor recreation.
+
+--------------------------------------------------------------------
+METHODOLOGY NOTES
+  Children under 12 estimated from household count x ABS-pattern child
+  proportion (~0.65/household for new family estates, ~0.45 for
+  established suburbs) - an estimate, not a Census figure.
+  Supply gap: distance to nearest known competitor play centre.
+  Weights: Family Pop 30%, Growth 25%, Supply Gap 25%, Road 10%,
+  Site Availability 10%.
+  Competitor & listing data: web search, July 2026 - see source URLs above.
+====================================================================

@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     re_path(r'^polls/', include('polls.urls')),
     re_path(r'^pethosp/', include('pethosp.urls')),
+    re_path(r'^playcentre/', include('playcentre.urls')),
     re_path(r'^admin/', admin.site.urls),
 ]

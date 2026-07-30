@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Centre Feasibility — Wyndham Growth Corridor</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'playcentre/style.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Wyndham Corridor — Play Centre Investment Feasibility</h1>
+  <p class="subtitle">
+    Identifying the best suburb for a big-box indoor play centre serving
+    Mambourin, Manor Lakes, Wyndham Vale &amp; Werribee. Analysis covers
+    <strong>{{ total_suburbs }}</strong> suburbs against
+    <strong>{{ total_competitors }}</strong> existing competitors and
+    <strong>{{ total_sites }}</strong> candidate real-estate sites.
+  </p>
+</header>
+
+<div class="container">
+
+  <!-- ====== MAP ====== -->
+  <section class="card">
+    <h2>Location Map</h2>
+    <div class="legend">
+      <span class="dot green"></span> High opportunity (score &ge;65)&nbsp;&nbsp;
+      <span class="dot yellow"></span> Medium (45–64)&nbsp;&nbsp;
+      <span class="dot red-dot"></span> Low (&lt;45)&nbsp;&nbsp;
+      <span class="dot competitor-dot"></span> Existing competitor&nbsp;&nbsp;
+      <span class="dot site-dot"></span> Candidate site
+    </div>
+    <div id="map"></div>
+  </section>
+
+  <!-- ====== TOP 5 REPORT ====== -->
+  <section class="card">
+    <h2>Top 5 Recommended Suburbs</h2>
+    <p class="note">
+      Ranked by composite score: Family Population (30%) + Growth/Corridor (25%) +
+      Supply Gap (25%) + Road Access (10%) + Site Availability (10%).
+    </p>
+    {% for s in top5 %}
+    <div class="top-card rank-{{ forloop.counter }}">
+      <div class="rank-badge">#{{ s.rank }}</div>
+      <div class="top-card-body">
+        <h3>{{ s.suburb.name }}
+          {% if s.suburb.is_growth_corridor %}
+          <span class="corridor-tag">GROWTH CORRIDOR</span>
+          {% endif %}
+        </h3>
+        <div class="score-bar-wrap">
+          <div class="score-bar" style="width: {{ s.composite_score }}%"></div>
+          <span class="score-label">{{ s.composite_score }}/100</span>
+        </div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-label">Population</span>
+            <span class="metric-value">{{ s.suburb.population|floatformat:"0" }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Est. Children &lt;12</span>
+            <span class="metric-value">{{ s.suburb.est_children_under_12|floatformat:"0" }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Annual Growth</span>
+            <span class="metric-value">{{ s.suburb.growth_rate_pct }}%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Nearest Competitor</span>
+            <span class="metric-value">{{ s.min_distance_to_competitor_km }} km</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Competitor Name</span>
+            <span class="metric-value small">{% if s.nearest_competitor %}{{ s.nearest_competitor.name }}{% else %}N/A{% endif %}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Best Candidate Site</span>
+            <span class="metric-value small">{% if s.best_candidate_site %}{{ s.best_candidate_site.name }}{% else %}None yet{% endif %}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Major Roads</span>
+            <span class="metric-value small">{{ s.suburb.major_roads }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Freeway Access</span>
+            <span class="metric-value">{% if s.suburb.has_freeway_access %}Yes{% else %}No{% endif %}</span>
+          </div>
+        </div>
+        <table class="score-breakdown">
+          <tr>
+            <th>Factor</th><th>Weight</th><th>Score</th>
+          </tr>
+          <tr>
+            <td>Family Population</td><td>30%</td><td>{{ s.family_population_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Growth / Corridor</td><td>25%</td><td>{{ s.growth_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Supply Gap</td><td>25%</td><td>{{ s.supply_gap_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Road Access</td><td>10%</td><td>{{ s.road_access_score }}/100</td>
+          </tr>
+          <tr>
+            <td>Site Availability</td><td>10%</td><td>{{ s.site_availability_score }}/100</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>COMPOSITE</strong></td><td></td><td><strong>{{ s.composite_score }}/100</strong></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    {% empty %}
+    <p>No scores available. Run: <code>python manage.py run_playcentre_analysis</code></p>
+    {% endfor %}
+  </section>
+
+  <!-- ====== CANDIDATE SITES TABLE ====== -->
+  <section class="card">
+    <h2>All Candidate Real-Estate Sites</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Site</th><th>Suburb</th><th>Type</th><th>Size (sqm)</th>
+            <th>Price/Rent</th><th>Verified</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for site in sites %}
+          <tr>
+            <td>{{ site.name }}</td>
+            <td>{{ site.suburb.name }}</td>
+            <td>{{ site.get_site_type_display }}</td>
+            <td>{% if site.size_sqm %}{{ site.size_sqm }}{% else %}TBC{% endif %}</td>
+            <td>{{ site.price_or_rent }}</td>
+            <td>{% if site.verified %}&#10003;{% else %}&#10007; unverified{% endif %}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="6">No candidate sites loaded yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ====== FULL RANKED TABLE ====== -->
+  <section class="card">
+    <h2>All Suburbs Ranked</h2>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Suburb</th>
+            <th>Score</th>
+            <th>Est. Children</th>
+            <th>Nearest Competitor (km)</th>
+            <th>Growth %</th>
+            <th>Corridor</th>
+            <th>Family Pop</th>
+            <th>Growth</th>
+            <th>Gap</th>
+            <th>Road</th>
+            <th>Site Avail.</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in scores %}
+          <tr class="{% if s.rank <= 5 %}top-row{% endif %}">
+            <td>{{ s.rank }}</td>
+            <td>{{ s.suburb.name }}</td>
+            <td><strong>{{ s.composite_score }}</strong></td>
+            <td>{{ s.suburb.est_children_under_12|floatformat:"0" }}</td>
+            <td>{{ s.min_distance_to_competitor_km }}</td>
+            <td>{{ s.suburb.growth_rate_pct }}%</td>
+            <td>{% if s.suburb.is_growth_corridor %}&#10003;{% else %}—{% endif %}</td>
+            <td>{{ s.family_population_score }}</td>
+            <td>{{ s.growth_score }}</td>
+            <td>{{ s.supply_gap_score }}</td>
+            <td>{{ s.road_access_score }}</td>
+            <td>{{ s.site_availability_score }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ====== TEXT REPORT ====== -->
+  <section class="card">
+    <h2>Feasibility Report (Plain Text)</h2>
+    <pre class="report-pre">{{ report_text }}</pre>
+  </section>
+
+</div><!-- /container -->
+
+<script>
+var map = L.map('map').setView([-37.86, 144.66], 11);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors',
+  maxZoom: 18
+}).addTo(map);
+
+// Suburb score circles
+var suburbData = {{ suburb_features_json|safe }};
+suburbData.forEach(function(d) {
+  var radius = 800 + (d.score / 100) * 1200;
+  var circle = L.circle([d.lat, d.lng], {
+    color: d.color,
+    fillColor: d.color,
+    fillOpacity: 0.5,
+    radius: radius,
+    weight: 1.5
+  }).addTo(map);
+
+  var corridorText = d.is_corridor ? '<b>&#10003; GROWTH CORRIDOR</b>' : 'Established suburb';
+  var siteText = d.best_site ? d.best_site : 'None identified yet';
+  circle.bindPopup(
+    '<b>#' + d.rank + ' ' + d.name + '</b><br>' +
+    'Composite Score: <b>' + d.score.toFixed(1) + '/100</b><br>' +
+    corridorText + '<br>' +
+    'Population: ' + d.population.toLocaleString() + ' (' + d.growth_rate + '%/yr)<br>' +
+    'Est. Children &lt;12: ' + d.est_children.toLocaleString() + '<br>' +
+    'Nearest Competitor: ' + d.nearest_competitor + ' (' + d.min_dist.toFixed(1) + ' km)<br>' +
+    'Best Candidate Site: ' + siteText + '<br>' +
+    'Roads: ' + d.roads + '<br>' +
+    '<hr style="margin:4px 0">' +
+    'Family Pop: ' + d.family_pop_score.toFixed(1) +
+    ' | Growth: ' + d.growth_score.toFixed(1) +
+    ' | Gap: ' + d.supply_gap_score.toFixed(1) +
+    ' | Road: ' + d.road_score.toFixed(1) +
+    ' | Site: ' + d.site_score.toFixed(1)
+  );
+});
+
+// Competitor markers
+var competitorData = {{ competitor_features_json|safe }};
+var compIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#c0392b;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.5)"></div>',
+  iconSize: [14, 14],
+  iconAnchor: [7, 7]
+});
+competitorData.forEach(function(c) {
+  L.marker([c.lat, c.lng], {icon: compIcon}).addTo(map)
+   .bindPopup(
+     '<b>' + c.name + '</b><br>' +
+     c.suburb + '<br>' +
+     '<em>' + c.type + '</em><br>' +
+     c.services.split(',').join(', ')
+   );
+});
+
+// Candidate site markers
+var siteData = {{ site_features_json|safe }};
+var siteIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#2980b9;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:14px solid #2980b9;"></div>',
+  iconSize: [14, 14],
+  iconAnchor: [7, 14]
+});
+siteData.forEach(function(s) {
+  var sizeText = s.size_sqm ? s.size_sqm.toLocaleString() + ' sqm' : 'size TBC';
+  var verifiedText = s.verified ? 'VERIFIED' : 'UNVERIFIED - confirm with agent';
+  var linkText = s.source_url ? '<br><a href="' + s.source_url + '" target="_blank">Source</a>' : '';
+  L.marker([s.lat, s.lng], {icon: siteIcon}).addTo(map)
+   .bindPopup(
+     '<b>' + s.name + '</b><br>' +
+     s.address + ', ' + s.suburb + '<br>' +
+     '<em>' + s.type + '</em><br>' +
+     sizeText + ' — ' + s.price_or_rent + '<br>' +
+     '<b>' + verifiedText + '</b>' + linkText
+   );
+});
+</script>
+
+</body>
+</html>
