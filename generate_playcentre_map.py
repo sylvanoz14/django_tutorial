@@ -65,8 +65,8 @@ SITE_CFG = {
 
 SUBURB_LABEL_OFFSETS = {
     'Mambourin':        (-0.035,  0.012),
-    'Manor Lakes':      ( 0.018,  0.014),
-    'Wyndham Vale':     ( 0.005, -0.018),
+    'Manor Lakes':      ( 0.006,  0.028),
+    'Wyndham Vale':     ( 0.028, -0.020),
     'Werribee':         ( 0.020, -0.020),
     'Werribee South':   ( 0.000, -0.022),
     'Tarneit':          ( 0.022,  0.016),
@@ -121,6 +121,22 @@ ax.text(144.600, -37.858, "USER'S MARKED TARGET ZONE",
         fontsize=8, fontweight='bold', color='#d81b60',
         ha='center', va='bottom', transform=PROJ, zorder=11,
         path_effects=[pe.withStroke(linewidth=2.5, foreground='white')])
+
+# ─── recommended tri-suburb centre point ───────────────────────────────────
+# Geometric centroid of Mambourin / Wyndham Vale / Manor Lakes, which sits on
+# the Ballan Road corridor — the primary recommendation for a single site
+# serving all three suburbs (see report's "PRIMARY RECOMMENDATION" section).
+centre_lng, centre_lat = 144.599, -37.886
+ax.plot(centre_lng, centre_lat, marker='*', markersize=26, color='#ffca28',
+        markeredgecolor='#c62828', markeredgewidth=1.8, transform=PROJ, zorder=20)
+rec_txt = ax.text(
+    centre_lng - 0.028, centre_lat - 0.006,
+    'RECOMMENDED:\nBallan Rd corridor\n(serves all 3 suburbs)',
+    fontsize=8.2, fontweight='bold', color='#c62828',
+    ha='right', va='center', transform=PROJ, zorder=20, linespacing=1.3,
+    bbox=dict(boxstyle='round,pad=0.3', facecolor='#fff8e1', alpha=0.95,
+              edgecolor='#c62828', linewidth=1.3),
+)
 
 # ─── suburb score circles ──────────────────────────────────────────────────
 for name, rank, score, lat, lng, is_corr, min_dist in suburbs:
@@ -181,29 +197,45 @@ SITE_SHORT_NAMES = {
     'Warehouse/Showroom/Retail Space – 14 Tallis Circuit': '14 Tallis Cct',
     'Land/Development Site – Lot 3-4, 440 Black Forest Rd / 323 Greens Rd': 'Lot 3-4 Black Forest Rd',
     'Mambourin Town Centre (future precinct)': 'Mambourin Town Centre',
+    'Manor Lakes Central (retail space for lease)': 'Manor Lakes Central',
+    '440 & 462 Ballan Rd / 2 Hirata Blvd (recently sold, market signal only)': '440/462 Ballan Rd (SOLD)',
+    '819 Ballan Rd, Manor Lakes (large vacant parcel)': '819 Ballan Rd',
 }
 SITE_LABEL_OFFSETS = {
     'Foundation at Truganina (Dexus industrial estate)':   (0, 0.014, 'center', 'bottom'),
     'Industrial/Warehouse Space – 355 Palmers Rd':          (-0.014, 0.001, 'right', 'center'),
     'Industrial/Warehouse Space – 42 Sunline Drive':        (0.014, 0.001, 'left', 'center'),
     'Warehouse/Showroom/Retail Space – 14 Tallis Circuit':  (0, -0.013, 'center', 'top'),
+    'Manor Lakes Central (retail space for lease)':         (0.020, 0.004, 'left', 'center'),
+    '440 & 462 Ballan Rd / 2 Hirata Blvd (recently sold, market signal only)': (0.024, -0.020, 'left', 'top'),
+    '819 Ballan Rd, Manor Lakes (large vacant parcel)':     (0.030, 0.002, 'left', 'center'),
 }
+# Sites that are confirmed NOT available (e.g. sold off-market) get a distinct
+# grey "X" marker regardless of their verified flag, so the map never implies
+# they're a live option.
+SITE_UNAVAILABLE = {'440 & 462 Ballan Rd / 2 Hirata Blvd (recently sold, market signal only)'}
 
 plotted_site_types = set()
 for name, lat, lng, stype, size_sqm, verified in sites:
     lat, lng = float(lat), float(lng)
     cfg = SITE_CFG.get(stype, SITE_CFG['warehouse_lease'])
     lbl = cfg['label'] if stype not in plotted_site_types else '_nolegend_'
-    marker_style = '^' if verified else 'v'
-    ax.scatter(lng, lat, c=cfg['color'], marker=marker_style, s=170,
+    if name in SITE_UNAVAILABLE:
+        marker_style, marker_color, marker_alpha = 'x', '#757575', 0.9
+        lbl = '_nolegend_'
+    else:
+        marker_style = '^' if verified else 'v'
+        marker_color, marker_alpha = cfg['color'], (1.0 if verified else 0.55)
+    ax.scatter(lng, lat, c=marker_color, marker=marker_style, s=170,
                edgecolors='white', linewidths=1.3, transform=PROJ, zorder=12,
-               alpha=1.0 if verified else 0.55, label=lbl)
+               alpha=marker_alpha, label=lbl)
     plotted_site_types.add(stype)
     short = SITE_SHORT_NAMES.get(name, name if len(name) < 26 else name[:24] + '…')
     size_str = ' ({} sqm)'.format(size_sqm) if size_sqm else ''
+    label_color = '#757575' if name in SITE_UNAVAILABLE else '#0d3d56'
     dx, dy, ha, va = SITE_LABEL_OFFSETS.get(name, (0, 0.009, 'center', 'bottom'))
     t = ax.text(lng + dx, lat + dy, short + size_str, fontsize=6.0, ha=ha, va=va,
-                color='#0d3d56', fontweight='bold', transform=PROJ, zorder=13)
+                color=label_color, fontweight='bold', transform=PROJ, zorder=13)
     t.set_path_effects([pe.withStroke(linewidth=2, foreground='white')])
 
 # ─── legend ────────────────────────────────────────────────────────────────
@@ -226,6 +258,8 @@ legend_handles.append(mpatches.Patch(facecolor='none', edgecolor='none', label='
 for stype, cfg in SITE_CFG.items():
     if stype in plotted_site_types:
         legend_handles.append(mpatches.Patch(facecolor=cfg['color'], edgecolor='white', label=cfg['label']))
+if any(s[0] in SITE_UNAVAILABLE for s in sites):
+    legend_handles.append(mpatches.Patch(facecolor='#757575', edgecolor='white', label='✕ Sold / not available (context only)'))
 
 leg = ax.legend(
     handles=legend_handles, loc='upper left', fontsize=7.6,

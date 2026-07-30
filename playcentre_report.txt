@@ -3,37 +3,78 @@
   Generated: 30 July 2026
 ====================================================================
 
-TOP 5 RECOMMENDED SUBURBS FOR BIG-BOX PLAY CENTRE DEVELOPMENT
+PRIMARY RECOMMENDATION: TRI-SUBURB CENTRE SITE
+(Serving Mambourin, Wyndham Vale & Manor Lakes from one location)
 --------------------------------------------------------------------
 
-#1  Truganina  —  Composite Score: 81.0/100
+IMPORTANT: the automated per-suburb ranking below scores each suburb
+independently and cannot express "one site serving three suburbs at
+once." For that specific goal, the recommendation is:
+
+  >>> BALLAN ROAD CORRIDOR, WYNDHAM VALE (near Manor Lakes Central) <<<
+
+  Ballan Road is the arterial that physically connects Wyndham Vale
+  and Manor Lakes, and sits almost exactly on the geometric centre of
+  Mambourin / Wyndham Vale / Manor Lakes (approx -37.886, 144.599).
+  It is also an active, real commercial corridor:
+
+  - Manor Lakes Central, 455 Ballan Rd: established shopping centre
+    (Coles, Kmart, Best & Less, Anytime Fitness, ~20,000 sqm GLA).
+    Colliers currently lists retail space for lease here. Co-locating
+    adjacent to this anchor captures existing family foot traffic from
+    all three suburbs at once. [UNVERIFIED — detail page blocked
+    automated retrieval; confirm current tenancy size with the agent]
+  - 440 & 462 Ballan Rd / 2 Hirata Blvd: 2.15 ha, approved for up to
+    11,000 sqm large-format retail, directly opposite Manor Lakes
+    Central. SOLD off-market (settlement Aug 2025) — NOT available,
+    but confirms developers are already targeting this exact corridor.
+  - 819 Ballan Rd, Manor Lakes: 45.23 ha vacant land nearby — likely
+    a master-planned parcel; worth asking whether a smaller lot can
+    be carved out.
+
+  NOTE ON TRUGANINA/TARNEIT: these still score highest in the raw
+  per-suburb model below, largely on verified warehouse availability.
+  But they sit outside the Mambourin/Wyndham Vale/Manor Lakes pocket
+  entirely (10-20 km away) and do not serve that catchment — and per
+  local knowledge, Crocs Playcentre in Hoppers Crossing already
+  covers the Truganina/Palmers Rd corridor, which the model
+  under-weighted before this competitor was added. If your goal is
+  specifically to serve Mambourin + Wyndham Vale + Manor Lakes, the
+  Ballan Road corridor above is the right answer, not Truganina.
+
+====================================================================
+
+TOP 5 RECOMMENDED SUBURBS (AUTOMATED PER-SUBURB MODEL)
+--------------------------------------------------------------------
+
+#1  Truganina  —  Composite Score: 74.7/100
     LGA:                City of Wyndham
     Status:             GROWTH CORRIDOR
     Population:         42,000  (growth: 7.2%/yr)
     Est. Children <12:  9,230
-    Nearest Competitor: Bumble Beez Indoor Playcentre & Cafe (12.4 km)
+    Nearest Competitor: Crocs Playcentre Hoppers Crossing (9.4 km)
     Major Road Access:  Western Fwy,Palmers Rd,Dohertys Rd
     Best Candidate Site: Industrial/Warehouse Space – 355 Palmers Rd — 355 Palmers Rd (1,571 sqm) [VERIFIED]
        Source: https://www.cushmanwakefield.com/en/australia/properties/for-lease/industrialwarehouse/vic/truganina/355-palmers-rd/a8y8b000000gm69eag-l
     --- Score breakdown ---
       Family Population:  72.0/100
       Growth:             63.4/100
-      Supply Gap:        100.0/100
+      Supply Gap:         75.0/100
       Road Access:        85.0/100
       Site Availability: 100.0/100
 
-#2  Tarneit  —  Composite Score: 71.9/100
+#2  Tarneit  —  Composite Score: 63.2/100
     LGA:                City of Wyndham
     Status:             GROWTH CORRIDOR
     Population:         58,000  (growth: 5.8%/yr)
     Est. Children <12:  12,350
-    Nearest Competitor: Bumble Beez Indoor Playcentre & Cafe (7.5 km)
+    Nearest Competitor: Crocs Playcentre Hoppers Crossing (4.9 km)
     Major Road Access:  Princes Fwy,Derrimut Rd,Tarneit Station
     Best Candidate Site: none identified yet in this suburb
     --- Score breakdown ---
       Family Population: 100.0/100
       Growth:             52.8/100
-      Supply Gap:         75.0/100
+      Supply Gap:         40.0/100
       Road Access:        80.0/100
       Site Availability:  20.0/100
 
@@ -52,33 +93,34 @@ TOP 5 RECOMMENDED SUBURBS FOR BIG-BOX PLAY CENTRE DEVELOPMENT
       Road Access:        60.0/100
       Site Availability: 100.0/100
 
-#4  Point Cook  —  Composite Score: 53.2/100
-    LGA:                City of Wyndham
-    Status:             Established Suburb
-    Population:         61,000  (growth: 3.0%/yr)
-    Est. Children <12:  9,225
-    Nearest Competitor: Bumble Beez Indoor Playcentre & Cafe (8.1 km)
-    Major Road Access:  Princes Fwy,Point Cook Rd
-    Best Candidate Site: none identified yet in this suburb
-    --- Score breakdown ---
-      Family Population:  72.0/100
-      Growth:             11.4/100
-      Supply Gap:         75.0/100
-      Road Access:        80.0/100
-      Site Availability:  20.0/100
-
-#5  Wyndham Vale  —  Composite Score: 46.4/100
+#4  Wyndham Vale  —  Composite Score: 54.4/100
     LGA:                City of Wyndham
     Status:             GROWTH CORRIDOR
     Population:         32,000  (growth: 4.5%/yr)
     Est. Children <12:  7,020
     Nearest Competitor: BouncyRoos (4.3 km)
     Major Road Access:  Princes Fwy,Ballan Rd,Wyndham Vale Station
-    Best Candidate Site: none identified yet in this suburb
+    Best Candidate Site: 440 & 462 Ballan Rd / 2 Hirata Blvd (recently sold, market signal only) — 440 & 462 Ballan Rd, 2 Hirata Blvd (11,000 sqm) [VERIFIED]
+       Source: https://www.cushmanwakefield.com/en/australia/properties/for-sale/landdevelopment
     --- Score breakdown ---
       Family Population:  52.2/100
       Growth:             42.9/100
       Supply Gap:         40.0/100
+      Road Access:        80.0/100
+      Site Availability: 100.0/100
+
+#5  Point Cook  —  Composite Score: 53.2/100
+    LGA:                City of Wyndham
+    Status:             Established Suburb
+    Population:         61,000  (growth: 3.0%/yr)
+    Est. Children <12:  9,225
+    Nearest Competitor: Crocs Playcentre Hoppers Crossing (6.3 km)
+    Major Road Access:  Princes Fwy,Point Cook Rd
+    Best Candidate Site: none identified yet in this suburb
+    --- Score breakdown ---
+      Family Population:  72.0/100
+      Growth:             11.4/100
+      Supply Gap:         75.0/100
       Road Access:        80.0/100
       Site Availability:  20.0/100
 
@@ -108,6 +150,18 @@ ALL CANDIDATE SITES FOUND (across all suburbs, for reference)
   [Future Precinct / Town Centre] Mambourin Town Centre (future precinct) — Mambourin Town Centre precinct (25,000 sqm, Not yet available — precinct in planning) [VERIFIED]
        Zoning: Planned mixed retail precinct; may include cinema per public precinct information
        Note: 25,000 sqm retail hub planned (cafes, restaurants, supermarkets, specialty stores, possible cinema). A co-located or adjacent play centre would benefit from shared footfall once this opens — worth monitoring as a longer-term anchor opportunity, not an immediate site.
+  [Commercial Development Site] 440 & 462 Ballan Rd / 2 Hirata Blvd (recently sold, market signal only) — 440 & 462 Ballan Rd, 2 Hirata Blvd (11,000 sqm, Sold off-market, settlement Aug 2025 — NOT available) [VERIFIED]
+       Zoning: 2.15 ha, zoned mixed-use, approved for up to 11,000 sqm large-format retail; directly opposite Manor Lakes Central
+       Note: NOT AN AVAILABLE SITE — sold off-market (settlement Aug 2025). Included only as a market signal: confirms developers are already actively targeting this exact Ballan Rd corridor for large-format retail, validating the tri-suburb thesis even though this specific parcel is gone.
+       Source: https://www.cushmanwakefield.com/en/australia/properties/for-sale/landdevelopment
+  [Commercial Development Site] Manor Lakes Central (retail space for lease) — 455 Ballan Rd (size TBC, Contact agent (Colliers)) [UNVERIFIED]
+       Zoning: Established sub-regional shopping centre (Coles, Kmart, Best & Less, Anytime Fitness, ~20,000 sqm GLA); zoned for retail/commercial use
+       Note: DIRECTLY ON BALLAN ROAD, the corridor connecting Wyndham Vale and Manor Lakes, near the geometric centre of Mambourin/Wyndham Vale/Manor Lakes. Co-locating adjacent to this established anchor centre would capture existing family foot traffic from all three suburbs. Colliers lists retail space for lease here but the detail page blocked automated retrieval — confirm current availability and tenancy size with the agent directly.
+       Source: https://www.colliers.com.au/en-au/properties/expanding-the-manor/aus-manor-lakes-central-455-ballan-road-wyndham-vale-vic-3024/aus66004486
+  [Industrial Land For Sale] 819 Ballan Rd, Manor Lakes (large vacant parcel) — 819 Ballan Rd (452,300 sqm, Contact agent) [VERIFIED]
+       Zoning: 45.23 hectares vacant land, opposite Jubilee Estate, near Wyndham Vale station and Manor Lakes Shopping Centre
+       Note: Far larger than needed (45+ ha) — likely a master-planned parcel awaiting subdivision. Worth inquiring whether a 2,000-5,000 sqm lot could be carved out, given its excellent position near the Wyndham Vale/Manor Lakes boundary.
+       Source: https://www.domain.com.au/819-ballan-road-manor-lakes-vic-3024-2019677645
 
 --------------------------------------------------------------------
 ZONING & APPROVALS NOTE

@@ -82,6 +82,15 @@ COMPETITOR_DATA = [
      -37.8960, 144.6600,
      'boutique_inflatable',
      'Indoor Play,Cafe,Birthday Parties'),
+
+    # Added per local knowledge (user correction, July 2026): a genuine big-box
+    # chain, not boutique/inflatable — confirmed via web search. This already
+    # services the Truganina/Palmers Rd corridor (~8.6km from that site).
+    ('Crocs Playcentre Hoppers Crossing',
+     '57-69 Forsyth Rd', 'Hoppers Crossing',
+     -37.8800, 144.6900,
+     'big_box_chain',
+     'Toddler Area,Ball Cannon Towers,Giant Bouncy Pillow,Mini Tramp,Climbing Wall,Party Rooms,Cafe'),
 ]
 
 
@@ -150,6 +159,51 @@ CANDIDATE_SITE_DATA = [
      'https://www.dexus.com/leasing/industrial/properties/foundation-at-truganina.html',
      True,
      'Large-format estate (units generally 11,000-15,000 sqm) — likely oversized unless subdivided.'),
+
+    # --- Ballan Road corridor sites, added per user request July 2026 ---
+    # Ballan Road is the arterial physically connecting Wyndham Vale and Manor
+    # Lakes, and sits almost exactly on the geometric centroid of Mambourin /
+    # Wyndham Vale / Manor Lakes (~-37.886, 144.599). This is the practical,
+    # real-world equivalent of "a site central to all three suburbs."
+    ('Manor Lakes Central (retail space for lease)',
+     '455 Ballan Rd', 'Wyndham Vale',
+     -37.8790, 144.6110,
+     'commercial_dev_site', None, 'Contact agent (Colliers)',
+     'Established sub-regional shopping centre (Coles, Kmart, Best & Less, Anytime '
+     'Fitness, ~20,000 sqm GLA); zoned for retail/commercial use',
+     'https://www.colliers.com.au/en-au/properties/expanding-the-manor/aus-manor-lakes-central-455-ballan-road-wyndham-vale-vic-3024/aus66004486',
+     False,
+     'DIRECTLY ON BALLAN ROAD, the corridor connecting Wyndham Vale and Manor Lakes, '
+     'near the geometric centre of Mambourin/Wyndham Vale/Manor Lakes. Co-locating '
+     'adjacent to this established anchor centre would capture existing family foot '
+     'traffic from all three suburbs. Colliers lists retail space for lease here but '
+     'the detail page blocked automated retrieval — confirm current availability '
+     'and tenancy size with the agent directly.'),
+
+    ('440 & 462 Ballan Rd / 2 Hirata Blvd (recently sold, market signal only)',
+     '440 & 462 Ballan Rd, 2 Hirata Blvd', 'Wyndham Vale',
+     -37.8785, 144.6105,
+     'commercial_dev_site', 11000, 'Sold off-market, settlement Aug 2025 — NOT available',
+     '2.15 ha, zoned mixed-use, approved for up to 11,000 sqm large-format retail; '
+     'directly opposite Manor Lakes Central',
+     'https://www.cushmanwakefield.com/en/australia/properties/for-sale/landdevelopment',
+     True,
+     'NOT AN AVAILABLE SITE — sold off-market (settlement Aug 2025). Included only as '
+     'a market signal: confirms developers are already actively targeting this exact '
+     'Ballan Rd corridor for large-format retail, validating the tri-suburb thesis '
+     'even though this specific parcel is gone.'),
+
+    ('819 Ballan Rd, Manor Lakes (large vacant parcel)',
+     '819 Ballan Rd', 'Manor Lakes',
+     -37.8720, 144.6150,
+     'industrial_land_sale', 452300, 'Contact agent',
+     '45.23 hectares vacant land, opposite Jubilee Estate, near Wyndham Vale station '
+     'and Manor Lakes Shopping Centre',
+     'https://www.domain.com.au/819-ballan-road-manor-lakes-vic-3024-2019677645',
+     True,
+     'Far larger than needed (45+ ha) — likely a master-planned parcel awaiting '
+     'subdivision. Worth inquiring whether a 2,000-5,000 sqm lot could be carved out, '
+     'given its excellent position near the Wyndham Vale/Manor Lakes boundary.'),
 ]
 
 
